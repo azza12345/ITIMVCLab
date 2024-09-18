@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVCLab.Models.Company>
+
+<h2>Companies</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date Start</th>
+            <th>Address</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model)
+        {
+            <tr>
+                <td>@company.Name</td>
+                <td>@company.Type</td>
+                <td>@company.DateStart.ToShortDateString()</td>
+                <td>@company.Address</td>
+                <td>@Html.ActionLink("View", "GetById", new { id = company.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

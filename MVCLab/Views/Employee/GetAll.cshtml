@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MVCLab.Models.Employee>
+
+<h2>Employees</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Company</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Age</td>
+                <td>@employee.Company.Name</td>
+                <td>@Html.ActionLink("View", "GetById", new { id = employee.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
