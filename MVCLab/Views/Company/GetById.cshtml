@@ -1,6 +1,8 @@
 ﻿@model MVCLab.Models.Company
 
-<h2>@Model.Name</h2>
+<h2>Company Details</h2>
+<p><strong>Name:</strong> @Model.Name</p>
 <p><strong>Type:</strong> @Model.Type</p>
 <p><strong>Date Start:</strong> @Model.DateStart.ToShortDateString()</p>
 <p><strong>Address:</strong> @Model.Address</p>
+<a asp-action="GetAll" class="btn btn-primary">Back to Companies</a>

@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MVCLab.Models.Company>
 
 <h2>Companies</h2>
+<a asp-action="Create" class="btn btn-primary">Create New Company</a>
 <table class="table">
     <thead>
         <tr>
@@ -8,8 +9,7 @@
             <th>Type</th>
             <th>Date Start</th>
             <th>Address</th>
-            <th>Action</th>
-            
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +20,10 @@
                 <td>@company.Type</td>
                 <td>@company.DateStart.ToShortDateString()</td>
                 <td>@company.Address</td>
-                <td>@Html.ActionLink("View", "GetById", new { id = company.Id })</td>
+                <td>
+                    <a asp-action="GetById" asp-route-id="@company.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Update" asp-route-id="@company.Id" class="btn btn-warning">Edit</a>
+                </td>
             </tr>
         }
     </tbody>
